@@ -1,2 +1,2 @@
 <?php
-echo é o categories
+echo "é o categories";

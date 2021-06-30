@@ -4,7 +4,7 @@ $controller = "home";
 
 /* white list de controllers*/
 
-$valid_controllers = ["home"];
+$valid_controllers = ["home", "categories"];
 
 if(isset($_GET["controller"]) && in_array($_GET["controller"], $valid_controllers) 
 ) {

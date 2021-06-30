@@ -1,10 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Restaurant Website</title>
+    <title>Takeaway</title>
 
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -15,7 +16,7 @@
         <div class="container">
             <div class="logo">
                 <a href="index.html" title="Logo">
-                    <img src="images/logo.png" alt="Restaurant Logo" class="img-responsive">
+                    <img src="#" alt="Restaurant Logo" class="img-responsive">
                 </a>
             </div>
 
@@ -41,6 +42,8 @@
     </section>
     <!-- Navbar Section Ends Here -->
 
+
+  
     <!-- fOOD sEARCH Section Starts Here -->
     <section class="food-search text-center">
         <div class="container">
@@ -55,6 +58,16 @@
     <!-- fOOD sEARCH Section Ends Here -->
 
     <!-- CAtegories Section Starts Here -->
+
+    <?php
+    foreach($categories as $category) {
+        echo '
+            <li>
+                <a href="products.php?category_id=' .$category["category_id"]. '">' .$category["name"]. '</a>
+            </li>
+        ';
+    }
+?>
     <section class="categories">
         <div class="container">
             <h2 class="text-center">Delicious Foods</h2>

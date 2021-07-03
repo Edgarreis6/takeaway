@@ -15,7 +15,7 @@
     <section class="navbar">
         <div class="container">
             <div class="logo">
-                <a href="home.php" title="Logo">
+                <a href="./" title="Logo">
                     <img src="#" alt="Restaurant Logo" class="img-responsive">
                 </a>
             </div>
@@ -59,15 +59,6 @@
 
     <!-- CAtegories Section Starts Here -->
 
-    <?php
-    foreach($categories as $category) {
-        echo '
-            <li>
-                <a href="products.php?category_id=' .$category["category_id"]. '">' .$category["name"]. '</a>
-            </li>
-        ';
-    }
-?>
     <section class="categories">
         <div class="container">
             <h2 class="text-center">Delicious Foods</h2>

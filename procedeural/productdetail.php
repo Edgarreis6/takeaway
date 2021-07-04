@@ -2,7 +2,7 @@
 require("config.php");
 
 $query = $db->prepare("
-    SELECT name, description, price, photo, stock
+    SELECT product_id, name, description, price, photo, stock, category_id
     FROM products
     WHERE product_id = ?
 
@@ -31,7 +31,7 @@ $product = $query->fetch( PDO::FETCH_ASSOC);
     <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="#">Takeaway</a>
+      <a class="navbar-brand" href="categories.php">Takeaway</a>
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="categories.php">Home</a></li>
@@ -52,15 +52,21 @@ $product = $query->fetch( PDO::FETCH_ASSOC);
             </figure>
             <div class="price"> Preço <?=$product["price"] ?>€</div>
         </article>
-        <form method="" action="">
+        <form method="post" action="cart.php">
             <div>
                 <label>
                     Quantidade
-                    <input type="number" name="quantity">
+                    <input type="number" name="quantity" value="1" min=1 max="<?=$product["stock"]?>" required>
                 </label>
+                <input type="hidden" name="product_id" value="<?=$product["product_id"]?>">
                 <button type="submit" name="send">Adicionar Carrinho</button>
             </div>
         </form>
+        <br>
+        <button>
+            <a href="products.php?category_id=<?=$product["category_id"]?>" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Voltar</a>
+        </button>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 
     </body>

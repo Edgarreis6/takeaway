@@ -36,8 +36,9 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
             <li><a href="#">Page 2</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="#"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Registar</a></li>
+      <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="cart.php"><span class="glyphicon glyphicon-log-in"></span> Carrinho</a></li>
     </ul>
   </div>
 </nav>

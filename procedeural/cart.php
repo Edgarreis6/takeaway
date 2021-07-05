@@ -2,6 +2,8 @@
 require("config.php");
 
 
+
+
 /* Processo de Validação*/
 
 if(isset($_POST["send"])) {
@@ -117,12 +119,13 @@ if(isset($_POST["send"])) {
         else {
             echo "Não tem nada no carrinho";
         }
+
     ?>
       <button>
             <a href= "checkout.php" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Finalizar Encomenda</a>
         </button>
 
-
+     
     </body>
 
 </html>

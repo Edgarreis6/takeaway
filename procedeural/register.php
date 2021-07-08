@@ -14,6 +14,8 @@ if(isset($_POST["send"])) {
             checkdate($_POST["month"], $_POST["day"], $_POST["year"])&&
             mb_strlen($_POST["name"]) >= 3 &&
             mb_strlen($_POST["name"]) <= 60 &&
+            mb_strlen($_POST["password"]) >= 8 &&
+            mb_strlen($_POST["password"]) <= 1000 &&
             mb_strlen($_POST["phone"]) >= 9 &&
             mb_strlen($_POST["phone"]) <= 30 &&
             mb_strlen($_POST["address"]) >= 5 &&

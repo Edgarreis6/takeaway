@@ -52,6 +52,10 @@ $product = $query->fetch( PDO::FETCH_ASSOC);
             </figure>
             <div class="price"> Preço <?=$product["price"] ?>€</div>
         </article>
+
+<?php
+    if($product["stock"] >0) {
+?>
         <form method="post" action="cart.php">
             <div>
                 <label>
@@ -62,6 +66,13 @@ $product = $query->fetch( PDO::FETCH_ASSOC);
                 <button type="submit" name="send">Adicionar Carrinho</button>
             </div>
         </form>
+
+<?php
+    }
+    else {
+      echo '<p>Lamentamos, mas este produto está esgotado</p>';
+    }
+?>
         <br>
         <button>
             <a href="products.php?category_id=<?=$product["category_id"]?>" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Voltar</a>

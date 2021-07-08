@@ -19,7 +19,7 @@ $query->execute([ $_GET["category_id"] ]);
 $products = $query->fetchAll(PDO::FETCH_ASSOC);
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
     <head>
         <meta charset="UTF-8">

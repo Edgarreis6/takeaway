@@ -44,7 +44,7 @@ if(isset($_POST["send"])) {
 
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 
     <head>
         <meta charset="UTF-8">

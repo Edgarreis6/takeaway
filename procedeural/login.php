@@ -2,6 +2,12 @@
 require("config.php");
 
 if(isset($_POST["send"])) {
+    foreach($_POST as $key => $value){
+
+        $_POST[$key] = strip_tags(trim($value));
+
+
+    }
 
       if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) &&
       mb_strlen($_POST["password"]) >= 8 &&

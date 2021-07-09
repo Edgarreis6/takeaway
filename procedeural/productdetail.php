@@ -1,6 +1,11 @@
 <?php
 require("config.php");
 
+if(!isset($_GET["product_id"])){
+    header("HTTP/1.1 400 Bad Request");
+    die("Request inválido");
+}
+
 $query = $db->prepare("
     SELECT product_id, name, description, price, photo, stock, category_id
     FROM products
@@ -13,6 +18,11 @@ $query->execute([
 ]);
 
 $product = $query->fetch( PDO::FETCH_ASSOC);
+
+if(empty($product)){
+    header("HTTP/1.1 404 Not Found");
+    die("Produto inválido");
+}
 ?>
 
 <!DOCTYPE html>

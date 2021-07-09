@@ -10,6 +10,13 @@ $query = $db->prepare("
 $query->execute();
 
 $categories = $query->fetchAll(PDO::FETCH_ASSOC);
+
+$cart_count = 0;
+
+if(isset($_SESSION["cart"])){
+  $cart_count = count($_SESSION["cart"]);
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -36,9 +43,21 @@ $categories = $query->fetchAll(PDO::FETCH_ASSOC);
             <li><a href="#">Page 2</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
+      <li><a href="cart.php"><span class="glyphicon glyphicon-shopping-cart"></span> Carrinho (<?=$cart_count?>)</a></li>
+<?php
+  if(!isset($_SESSION["user_id"])){
+?>
       <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Registar</a></li>
       <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-      <li><a href="cart.php"><span class="glyphicon glyphicon-log-in"></span> Carrinho</a></li>
+<?php
+    }
+    else{
+?>
+      <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+<?php
+  }
+?>
+
     </ul>
   </div>
 </nav>

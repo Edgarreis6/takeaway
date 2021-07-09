@@ -1,13 +1,18 @@
 <?php
 require("config.php");
 
-echo "<pre>",
-print_r($_POST);
-echo "</pre>";
 
 
 
 if(isset($_POST["send"])) {
+
+
+    foreach($_POST as $key => $value){
+
+        $_POST[$key] = strip_tags(trim($value));
+
+    
+    }
         if( 
             filter_var($_POST["email"], FILTER_VALIDATE_EMAIL)&&
             $_POST["password"] === $_POST["password_confirm"] &&

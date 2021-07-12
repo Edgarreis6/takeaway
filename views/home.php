@@ -28,13 +28,13 @@
 <?php
   if(!isset($_SESSION["user_id"])){
 ?>
-      <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Registar</a></li>
-      <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="?controller=access&action=register"><span class="glyphicon glyphicon-user"></span>Criar Conta</a></li>
+      <li><a href="?controller=access&action=login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
 <?php
     }
     else{
 ?>
-      <li><a href="logout.php"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+      <li><a href="?controller=access&action=logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
 <?php
   }
 ?>

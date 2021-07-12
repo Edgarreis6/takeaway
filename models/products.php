@@ -2,7 +2,9 @@
 <?php
 
 require("base.php");
+
 class Products extends Base {
+    
     public function getProduct($products_id){
         
         $query = $this->db->prepare("
@@ -19,16 +21,13 @@ class Products extends Base {
         ");
     
         $query->execute([
-          $products_id,
+          $products_id
                   ]);
     
         return $query->fetchAll( PDO::FETCH_ASSOC );
       }
-    
-
-
-
-}
-
+      
+   
+}    
 
 

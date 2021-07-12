@@ -1,29 +1,3 @@
-<?php
-require("config.php");
-
-if(!isset($_GET["product_id"])){
-    header("HTTP/1.1 400 Bad Request");
-    die("Request inválido");
-}
-
-$query = $db->prepare("
-    SELECT product_id, name, description, price, photo, stock, category_id
-    FROM products
-    WHERE product_id = ?
-
-");
-
-$query->execute([
-    $_GET["product_id"]
-]);
-
-$product = $query->fetch( PDO::FETCH_ASSOC);
-
-if(empty($product)){
-    header("HTTP/1.1 404 Not Found");
-    die("Produto inválido");
-}
-?>
 
 <!DOCTYPE html>
 <html lang="pt">
@@ -41,15 +15,15 @@ if(empty($product)){
     <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand" href="categories.php">Takeaway</a>
+      <a class="navbar-brand" href="./">Takeaway</a>
     </div>
     <ul class="nav navbar-nav">
-      <li class="active"><a href="categories.php">Home</a></li>
+      <li class="active"><a href="./">Home</a></li>
             <li><a href="#">Page 2</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="?controllers=access&action=register"><span class="glyphicon glyphicon-user"></span> Criar Conta</a></li>
-      <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="?controller=access&action=register"><span class="glyphicon glyphicon-user"></span>Criar Conta</a></li>
+      <li><a href="?controller=access&action=login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>
@@ -85,7 +59,7 @@ if(empty($product)){
 ?>
         <br>
         <button>
-            <a href="./category_id=<?=$product["category_id"]?>" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Voltar</a>
+            <a href="?controller=category_id=<?=$product["category_id"]?>" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Voltar</a>
         </button>
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>

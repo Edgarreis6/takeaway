@@ -15,3 +15,5 @@ $products = $productsModel->getProduct($_GET["category_id"]);
 
 
 require("views/products.php");
+
+

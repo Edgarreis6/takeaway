@@ -1,5 +1,6 @@
 <?php
 session_start();
+
 class Base {
     public $db;
 

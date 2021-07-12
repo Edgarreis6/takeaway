@@ -1,48 +1,3 @@
-<?php
-require("config.php");
-
-if(isset($_POST["send"])) {
-    foreach($_POST as $key => $value){
-
-        $_POST[$key] = strip_tags(trim($value));
-
-
-    }
-
-      if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) &&
-      mb_strlen($_POST["password"]) >= 8 &&
-      mb_strlen($_POST["password"]) <= 1000 
-  ) { 
-    $query = $db->prepare("
-      SELECT user_id, password 
-      FROM users
-      WHERE email = ?
-    ");
-
-    $query->execute([
-      $_POST["email"]
-    ]);
-      
-      $user =  $query->fetch();
-
-        if(!empty($user) &&
-        password_verify($_POST["password"], $user["password"] )
-      ) {
-
-        $_SESSION["user_id"] = $user["user_id"];
-        
-        header("Location: cart.php");
-      }
-      else{
-        $message = "Dados incorrectos";
-      }
-  }
-  else{
-    $message = "Dados incorrectos";
-  }
-}
-
-?>
 
 <!DOCTYPE html>
 <html lang="pt">
@@ -70,8 +25,8 @@ if(isset($_POST["send"])) {
             <li><a href="#">Page 2</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="?controllers=access&action=register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="?controllers=access&action=login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+      <li><a href="?controller=access&action=register"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a href="?controller=access&action=login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
     </ul>
   </div>
 </nav>
@@ -93,7 +48,7 @@ if(isset($_POST["send"])) {
 
                     <p class="text-whitesmoke">Takeaway</p>
                 <div class="container-content">
-                    <form method="post" action="login.php" class="margin-t">
+                    <form method="post" action="?controller=access&action=login" class="margin-t">
                         <div class="form-group">
                             <input type="email" class="form-control" name="email" placeholder="email@cenas.com" required>
                         </div>
@@ -103,7 +58,7 @@ if(isset($_POST["send"])) {
                         <button type="submit" name="send" class="form-button button-l margin-b">Sign In</button>
         
                         <a class="text-darkyellow" href="#"><small>Forgot your password?</small></a>
-                        <h3 class="text-whitesmoke text-center"><small><a class="text-whitesmoke" href="register.php">Não está registado?</a></small></~h>
+                        <h3 class="text-whitesmoke text-center"><small><a class="text-whitesmoke" href="?controller=access&action=register">Não está registado?</a></small></~h>
                     </form>
                 </div>
             </div>

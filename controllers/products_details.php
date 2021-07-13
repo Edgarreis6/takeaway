@@ -1,5 +1,5 @@
 <?php
-require("models/products_details.php");
+require("models/products.php");
 
 $products= new Products();
 

@@ -59,11 +59,11 @@ else if ($_GET["action"] === "login") {
             header("Location: ./");
           }
           else{
-            $message = "Dados incorrectos";
+            $message = "Dados de autenticação incorrectos";
           }
       }
       else{
-        $message = "Dados incorrectos"; 
+        $message = "Preencha os campos correctamente"; 
        
         }
     }

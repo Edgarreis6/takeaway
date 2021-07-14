@@ -40,7 +40,7 @@ if($_POST["request"] === "removeProduct" &&
         $product = $query->fetch();
 
     if(!empty($product)) {
-        $_SESSION["cart"][$product["product_id"] ] ["quantity"] = (int)$_POST["quantity"];
+        $_SESSION["cart"][ $product["product_id"] ] ["quantity"] = (int)$_POST["quantity"];
         
         echo '{"status":"ok"}';
 

@@ -6,7 +6,7 @@ Class Users extends Base {
     public function getDetails($email) {
        
         $query = $this->db->prepare("
-            SELECT user_id, email, password
+            SELECT user_id, email,user_type, password
             FROM users
             WHERE email = ?
         

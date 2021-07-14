@@ -40,7 +40,7 @@
 <?php
     if($product["stock"] >0) {
 ?>
-        <form method="post" action="cart.php">
+        <form method="post" action="?controller=cart">
             <div>
                 <label>
                     Quantidade

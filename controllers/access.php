@@ -44,7 +44,9 @@ if($_GET["action"] === "register") {
 
 }
 else if ($_GET["action"] === "login") {
+    
     if(isset($_POST["send"])){
+    
         if(filter_var($_POST["email"], FILTER_VALIDATE_EMAIL) &&
             mb_strlen($_POST["password"]) >= 8 &&
             mb_strlen($_POST["password"]) <= 1000 
@@ -53,11 +55,24 @@ else if ($_GET["action"] === "login") {
             if(!empty($user) &&
             password_verify($_POST["password"], $user["password"] )
           ) {
-    
-            $_SESSION["user_id"] = $user["user_id"];
             
-            header("Location: ./");
+            if($user["user_type"] === "admin") {
+                $_SESSION["user_type"] =  $user["user_type"];
+                $_SESSION["user_id"]   =  $user["user_id"];
+                $_SESSION["name"]      =  $user["name"]. ' (admin)';
+    
+                header("Location: ?controller=admin");
+                
+            } else if ($user["user_type"] === "user") {
+                $_SESSION["user_type"] = $user["user_type"];
+                $_SESSION["user_id"]   = $user["user_id"];
+                $_SESSION["name"]      = $user["name"];
+               
+                header("Location: ?controller=home");
+            }
+                     
           }
+               
           else{
             $message = "Dados de autenticação incorrectos";
           }

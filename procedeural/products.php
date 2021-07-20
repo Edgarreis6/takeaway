@@ -1,9 +1,9 @@
-<?php   
-require("config.php");
+<?php
+include("config.php");
 
-if(!isset($_GET["category_id"])){
-    header("HTTP/1.1. 400 Bad Request");
-    die("Request Inválido");
+if( !isset($_GET["category_id"]) ){
+    header("HTTP/1.1 400 Bad Request");
+    die(" Request Inválido");
 }
 
 $query = $db->prepare("
@@ -21,62 +21,34 @@ $query = $db->prepare("
 
 $query->execute([ $_GET["category_id"] ]);
 
-$products = $query->fetchAll(PDO::FETCH_ASSOC);
+$products = $query->fetchAll( PDO::FETCH_ASSOC );
+if( empty($products)) {
 
-if(empty($products) ) {
     header("HTTP/1.1 404 Not Found");
     die("Categoria inválida");
 }
 ?>
 <!DOCTYPE html>
 <html lang="pt">
-
     <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta charset="utf-8">
         <title><?=$products[0]["category"]?></title>
-
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
-
     <body>
-
-    <nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <a class="navbar-brand" href="categories.php">Takeaway</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="categories.php">Home</a></li>
-            <li><a href="#">Page 2</a></li>
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="register.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-      <li><a href="login.php"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
-  </div>
-</nav>
-
-
-
         <h1><?=$products[0]["category"]?></h1>
         <ul>
-<?php  
-    foreach($products as $product){
+<?php
+    foreach($products as $product) {
         echo '
             <li>
-                <a href= "productdetail.php?product_id='.$product["product_id"].'">'.$product["name"].'</a>
+                <a href="productdetail.php?product_id=' .$product["product_id"]. '">' .$product["name"]. '</a>
             </li>
         ';
     }
-?>    
-                
+?>
         </ul>
-
-
-        
+        <nav>
+            <a href="categories.php">Voltar</a>
+        </nav>
     </body>
-
 </html>

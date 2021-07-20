@@ -6,7 +6,7 @@ $model = new Categories;
 
 if( !empty($action) ) {
 
-    $categories = $model->getcategories( $action );
+    $categories = $model->get($action );
 
     if( empty($categories) ) {
         header("HTTP/1.1 404 Not Found");
@@ -18,4 +18,4 @@ if( !empty($action) ) {
 else {
     $categories = $model->get();
 }
-    require("view/home.php");
+    require("views/home.php");

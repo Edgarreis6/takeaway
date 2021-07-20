@@ -1,14 +1,11 @@
 <?php
 
-
 require("models/products.php");
 
 $products= new Products();
 
 
-
 if(isset($_POST["send"])) {
-    echo "<br>";
     if(
         !empty($_POST["quantity"]) &&
         !empty($_POST["product_id"]) &&
@@ -30,5 +27,11 @@ if(isset($_POST["send"])) {
         }
 
     }
+}
+
+$cart_count = 0;
+
+if(isset($_SESSION["cart"])){
+  $cart_count = count($_SESSION["cart"]);
 }
 require("views/cart.php");

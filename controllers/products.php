@@ -12,7 +12,11 @@ if(!isset($_GET["category_id"])){
 $products = $productsModel->getProduct($_GET["category_id"]);
 
 
+$cart_count = 0;
 
+if(isset($_SESSION["cart"])){
+  $cart_count = count($_SESSION["cart"]);
+}
 
 require("views/products.php");
 

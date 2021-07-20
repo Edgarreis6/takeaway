@@ -14,7 +14,7 @@
     <body>
 <br>
     <button>
-            <a href= "?controller=categories" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Homepage</a>
+            <a href= "?controller=home" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Homepage</a>
         </button>
 
            

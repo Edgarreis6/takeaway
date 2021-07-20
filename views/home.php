@@ -39,6 +39,18 @@
   }
 ?>
 
+<?php
+  if(isset($_SESSION["user_type"]) 
+  && $_SESSION["user_type"] === "admin" ){
+    
+      ?>  
+     <li><a href="?controller=admin">admin</a></li>
+<?php
+   
+}
+  ?>
+
+
     </ul>
   </div>
 </nav>
@@ -50,7 +62,7 @@
             
     <!-- Categories Section Ends Here -->
     
-    <h2 class="text-center">Delicious Foods</h2>
+    <h2 class="text-center">A sua Cozinha preferida</h2>
     
     <section class="categories">
       <div class="container">
@@ -60,7 +72,7 @@
         
             <a  href="?controller=products&category_id='.$category["category_id"].'"> 
                 <div class="box-3 float-container">
-                    <img class="img-responsive img-curve" src="../images/categorias/'.$category["photo"].'" 
+                    <img class="img-responsive img-curve" src="images/categorias/'.$category["photo"].'" 
                     </a>
                     <h3 class="float-text text-center text-white">'.$category["name"].'</h3>
                     </div>

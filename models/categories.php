@@ -13,11 +13,57 @@ class Categories extends Base
         ");
 
         $query->execute();
-
-        return $query->fetchAll( PDO::FETCH_ASSOC );
+        return $query->fetchall(PDO:: FETCH_ASSOC);
     }
 
     
+    
+    public function create($data, $file) {
 
+        
+        $query = $this->db->prepare("
+            INSERT INTO categories 
+            (name, photo)
+            VALUES(?, ?)
+        ");
+        
+        return $query->execute([
+            $data["name"],
+            $file
+        ]);
+
+    }
+
+    public function update($id, $data) {
+        $data = $this->sanitize($data);
+
+        if(!$this->validator($data)) {
+            return false;
+        }
+
+        $query = $this->db->prepare("
+            UPDATE categories
+            SET name = ?,
+                photo = ?
+            WHERE category_id = ?
+        ");
+        
+        return $query->execute([
+            $data["name"],
+            $files["photo"],
+            $id
+        ]);
+    }
+
+    public function delete($id) {
+        $query = $this->db->prepare("
+            DELETE FROM categories
+            WHERE category_id = ?
+        ");
+
+        return $query->execute([
+            $id
+        ]);
+    }
 
 }

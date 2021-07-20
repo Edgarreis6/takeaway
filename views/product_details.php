@@ -22,9 +22,22 @@
             <li><a href="#">Page 2</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
+      <li><a href="?controller=cart"><span class="glyphicon glyphicon-shopping-cart"></span> Carrinho (<?=$cart_count?>)</a></li>
+<?php
+  if(!isset($_SESSION["user_id"])){
+?>
       <li><a href="?controller=access&action=register"><span class="glyphicon glyphicon-user"></span>Criar Conta</a></li>
       <li><a href="?controller=access&action=login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
+<?php
+    }
+    else{
+?>
+      <li><a href="?controller=access&action=logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+<?php
+  }
+?>
+
+</ul>
   </div>
 </nav>
 

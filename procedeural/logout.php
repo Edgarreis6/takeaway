@@ -1,7 +1,8 @@
-<?php
-require("config.php");
+<?php 
+include("config.php");
 
 unset($_SESSION["user_id"]);
+
 session_destroy();
 
-header("Location: categories.php");
+header("Location: ./");

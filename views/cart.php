@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt">
-
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,13 +24,24 @@
             <li><a href="#">Page 2</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
-      <li><a href="?controller=access&action=register"><span class="glyphicon glyphicon-user"></span> Criar Conta </a></li>
+      <li><a href="?controller=cart"><span class="glyphicon glyphicon-shopping-cart"></span> Carrinho (<?=$cart_count?>)</a></li>
+<?php
+  if(!isset($_SESSION["user_id"])){
+?>
+      <li><a href="?controller=access&action=register"><span class="glyphicon glyphicon-user"></span>Criar Conta</a></li>
       <li><a href="?controller=access&action=login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
-    </ul>
+<?php
+    }
+    else{
+?>
+      <li><a href="?controller=access&action=logout"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+<?php
+  }
+?>
+
+</ul>
   </div>
 </nav>
-
-
 
 <?php
       if( !empty ($_SESSION["cart"]) ){
@@ -90,6 +100,7 @@
             <a href= "?controller=checkout" class="btn btn-secondary btn-lg active" role="button" aria-pressed="true">Finalizar Encomenda</a>
         </button>
 
+
         <script>
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -130,8 +141,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
             const tr = button.parentNode.parentNode;
             const product_id = tr.dataset.product_id;
-
-            fetch("./controllers/requests.php", {
+            
+            fetch("/?controller=requests", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded"
@@ -141,8 +152,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
                 .then(response => response.json())
                 .then(parsedResponse => {
-                    if (parsedResponse.status == "OK") {
-
+                    if (parsedResponse.status == "ok") {
                         tr.remove();
 
                         recalculateTotal();
@@ -150,7 +160,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 });
 
 
-        })
+        });
     }
 
     for (let input of quantityInputs) {
@@ -159,7 +169,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const product_id = tr.dataset.product_id;
             const quantity = input.value;
 
-            fetch("./controllers/requests.php", {
+            fetch("/?controller=requests", {
                     method: "POST",
                     headers: {
                         "Content-Type": "application/x-www-form-urlencoded"
@@ -169,16 +179,15 @@ document.addEventListener("DOMContentLoaded", () => {
                 })
                 .then(response => response.json())
                 .then(parsedResponse => {
-                    if (parsedResponse.status == "OK") {
-
+                    if (parsedResponse.status == "ok") {
                         recalculateSubTotals(input);
                     }
                 });
 
-        })
+        });
 
     }
-})
+});
         </script>
     </body>
 

@@ -6,10 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
     <link rel="stylesheet" href="../css/admin.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+   
 
 </head>
 <body>
@@ -18,7 +15,7 @@
         <div class="wrapper text-center">
             <ul>
                 <li><a href="?controller=admin">Home</a></li>
-                <li><a href="?controller=add_categories">Category</a></li>
+                <li><a href="?controller=manage_category">Category</a></li>
                 <li><a href="?controller=add_products">Products</a></li>
                 <li><a href="?controller=add_orders">Orders</a></li>
                 <li><a href="?controller=home">Mainpage</a></li>

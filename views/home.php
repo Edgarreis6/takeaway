@@ -67,6 +67,7 @@
     <section class="categories">
       <div class="container">
 <?php  
+
     foreach($categories as $category){
         echo '
         

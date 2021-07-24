@@ -101,7 +101,7 @@
         </button>
 
 
-        <script>
+<script>
 
 document.addEventListener("DOMContentLoaded", () => {
     const removeButtons = document.querySelectorAll(".remove");
@@ -188,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     }
 });
-        </script>
+</script>
     </body>
 
 </html>

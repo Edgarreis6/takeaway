@@ -7,7 +7,7 @@ class Categories extends Base
     public function get() {
 
         $query = $this->db->prepare("
-            SELECT category_id, name, photo
+            SELECT *
             FROM categories
             
         ");

@@ -6,7 +6,7 @@ $categoriesModel = new Categories();
 
 
 if(isset($_POST["send"])) {
-
+    print_r($_POST);
         
     $extension = strtolower(substr($_FILES["photo"]["name"], -4));
     $newname = md5(time()) .$extension;

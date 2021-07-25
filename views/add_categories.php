@@ -18,7 +18,7 @@
         <div class="wrapper text-center">
             <ul>
                 <li><a href="?controller=admin">Home</a></li>
-                <li><a href="?controller=add_categories">Category</a></li>
+                <li><a href="?controller=managecategory">Category</a></li>
                 <li><a href="manage_product.php">Products</a></li>
                 <li><a href="manage_order.php">Orders</a></li>
                 <li><a href="?controller=home">Mainpage</a></li>

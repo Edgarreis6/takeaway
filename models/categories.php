@@ -7,7 +7,7 @@ class Categories extends Base
     public function get() {
 
         $query = $this->db->prepare("
-            SELECT *
+            SELECT category_id, name, photo
             FROM categories
             
         ");
@@ -16,6 +16,22 @@ class Categories extends Base
         return $query->fetchall(PDO:: FETCH_ASSOC);
     }
 
+
+    public function getDetails($id) {
+
+        $query = $this->db->prepare("
+            SELECT category_id, name, photo
+            FROM categories
+            WHERE category_id = ?
+            
+        ");
+
+        $query->execute([   
+            $id
+
+        ]);
+        return $query->fetchall(PDO:: FETCH_ASSOC);
+    }
     
     
     public function create($data, $file) {
@@ -34,13 +50,9 @@ class Categories extends Base
 
     }
 
-    public function update($id, $data) {
-        $data = $this->sanitize($data);
+    public function update($data, $file) {
 
-        if(!$this->validator($data)) {
-            return false;
-        }
-
+     
         $query = $this->db->prepare("
             UPDATE categories
             SET name = ?,
@@ -50,8 +62,8 @@ class Categories extends Base
         
         return $query->execute([
             $data["name"],
-            $files["photo"],
-            $id
+            $file,
+            $data["id"]
         ]);
     }
 

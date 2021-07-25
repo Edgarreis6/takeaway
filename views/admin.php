@@ -16,8 +16,8 @@
             <ul>
                 <li><a href="?controller=admin">Home</a></li>
                 <li><a href="?controller=manage_category">Category</a></li>
-                <li><a href="?controller=add_products">Products</a></li>
-                <li><a href="?controller=add_orders">Orders</a></li>
+                <li><a href="?controller=manage_products">Products</a></li>
+                <li><a href="?controller=manage_orders">Orders</a></li>
                 <li><a href="?controller=home">Mainpage</a></li>
             </ul>
         </div>

@@ -5,8 +5,8 @@ $controller = "home";
 /* white list de controllers*/
 
 $valid_controllers = ["home", "categories", "products", "products_details",
- "access", "cart", "requests", "checkout", "admin","add_categories", "add_products",
- "del_categories", "manage_category" ];
+ "access", "cart", "requests", "checkout", "admin", "add_categories", "manage_category", 
+ "update_category" ];
 
 if(isset($_GET["controller"]) && in_array($_GET["controller"], $valid_controllers) 
 ) {

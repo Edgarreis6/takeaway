@@ -1,12 +1,14 @@
 <?php
-
+if($_SESSION["user_type"] != "admin"){
+    header("Location:./");
+    exit;
+}
 require("models/categories.php");
 
 $categoriesModel = new Categories();
 
 
 if(isset($_POST["send"])) {
-    print_r($_POST);
         
     $extension = strtolower(substr($_FILES["photo"]["name"], -4));
     $newname = md5(time()) .$extension;
@@ -17,7 +19,7 @@ if(isset($_POST["send"])) {
     $categories = $categoriesModel->create($_POST, $newname);
 
         
-        echo 'O produto '.$_POST["name"]. " foi adicionado corretamente";
+    echo 'O produto '.$_POST["name"]. " foi adicionado corretamente";
            
 }
     require("views/add_categories.php");

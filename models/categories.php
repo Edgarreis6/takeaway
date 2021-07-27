@@ -1,5 +1,5 @@
 <?php
-require("base.php");
+require_once("base.php");
 
 
 class Categories extends Base

@@ -1,10 +1,29 @@
 
 <?php
 
-require("base.php");
+require_once("base.php");
 
 class Products extends Base {
     
+  public function get(){
+        
+    $query = $this->db->prepare("
+    SELECT product_id, name, description, price, 
+   photo, stock, category_id
+    
+    FROM 
+        products
+   
+    ");
+
+    $query->execute([
+              ]);
+
+    return $query->fetchAll( PDO::FETCH_ASSOC );
+  }
+  
+
+
     public function getProduct($products_id){
         
         $query = $this->db->prepare("
@@ -27,7 +46,7 @@ class Products extends Base {
         return $query->fetchAll( PDO::FETCH_ASSOC );
       }
       
-      public function getProductsDetails($product){
+      public function getProductsDetails($data){
         
         $query = $this->db->prepare("
         SELECT product_id, name, description, price, photo, stock, category_id
@@ -36,30 +55,29 @@ class Products extends Base {
         ");
     
         $query->execute([
-          $product
+          $data
         
           ]);
     
         return $query->fetch( PDO::FETCH_ASSOC );
       }
 
-      public function createProduct($product, $file) {
+      public function createProduct($data, $file) {
         
         $query = $this->db->prepare("
              INSERT INTO products
              (name, description, price, photo, stock, category_id)
-             VALUES (?,?,?,?,?)
+             VALUES (?,?,?,?,?,?)
          ");
          $query->execute([
-             $product["name"],
-             $product["description"],
-             $product["price"],
+             $data["name"],
+             $data["description"],
+             $data["price"],
              $file,
-             $product["stock"],
-             $product["category_id"]
+             $data["stock"],
+             $data["category_id"]
            ]);
  
-           return $query->fetch(PDO:: FETCH_ASSOC);
      }
     
      public function updateProducts($product){
@@ -81,15 +99,15 @@ class Products extends Base {
       return $query->fetch(PDO:: FETCH_ASSOC);
   }
 
-      public function deleteProduct($product){
+      public function deleteProduct($id){
         $query = $this->db->prepare("
             DELETE FROM products
-            WHERE product_id = ? AND name = ?
+            WHERE product_id = ? 
         ");
 
         $query->execute([
-            $data["product_id"],
-            $data["name"]
+            $id
+           
           ]);
 
           return $query->fetch(PDO:: FETCH_ASSOC);

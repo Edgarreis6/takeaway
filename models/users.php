@@ -1,5 +1,5 @@
 <?php
-require("base.php");
+require_once("base.php");
 
 Class Users extends Base {
 

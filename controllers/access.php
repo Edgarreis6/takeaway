@@ -59,7 +59,7 @@ else if ($_GET["action"] === "login") {
             if($user["user_type"] === "admin") {
                 $_SESSION["user_type"] =  $user["user_type"];
                 $_SESSION["user_id"]   =  $user["user_id"];
-                $_SESSION["name"]      =  $user["name"]. ' (admin)';
+                $_SESSION["name"]      =  $user["name"]. '(admin)';
     
                 header("Location: ?controller=admin");
                 

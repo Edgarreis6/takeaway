@@ -1,5 +1,8 @@
 <?php
-
+if($_SESSION["user_type"] != "admin"){
+    header("Location:./");
+    exit;
+}
 require("models/categories.php");
 
 $categoriesModel = new Categories();

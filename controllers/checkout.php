@@ -1,5 +1,5 @@
 <?php
-require("models/orders.php");
+require_once("models/orders.php");
 $modelOrders = new Orders;
 
 if( !isset($_SESSION["user_id"]) ) {

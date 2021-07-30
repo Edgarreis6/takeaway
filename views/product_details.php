@@ -45,9 +45,9 @@
         <article>
             <div class="description"><?=$product["description"]?></div>
             <figure>
-                <img class="photo" src="../images/produtos/<?=$product["photo"]?>" alt="foto">
+                <img class="photo" src="../images/products/<?=$product["photo"]?>" alt="foto">
             </figure>
-            <div class="price"> Preço <?=$product["price"] ?>€</div>
+            <div class="price" name="price"> Preço <?=$product["price"] ?>€</div>
         </article>
 
 <?php

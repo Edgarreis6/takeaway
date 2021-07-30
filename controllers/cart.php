@@ -1,9 +1,8 @@
 <?php
 
-require("models/products.php");
+require_once("models/products.php");
 
 $products= new Products();
-
 
 if(isset($_POST["send"])) {
     if(
@@ -13,7 +12,6 @@ if(isset($_POST["send"])) {
         is_numeric($_POST["product_id"]) &&
         $_POST["quantity"] >= 1
     ) {
-            
         $product = $products->getProductsDetails($_POST["product_id"]);
         if( !empty($product) ) {
             $_SESSION[ "cart"][ $product["product_id"] ] = [

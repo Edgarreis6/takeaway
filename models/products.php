@@ -46,7 +46,7 @@ class Products extends Base {
         return $query->fetchAll( PDO::FETCH_ASSOC );
       }
       
-      public function getProductsDetails($data){
+      public function getProductsDetails($product_id){
         
         $query = $this->db->prepare("
         SELECT product_id, name, description, price, photo, stock, category_id
@@ -55,12 +55,29 @@ class Products extends Base {
         ");
     
         $query->execute([
-          $data
+          $product_id
         
           ]);
     
         return $query->fetch( PDO::FETCH_ASSOC );
       }
+
+      public function getProductsDetailsUp($product_id){
+        
+        $query = $this->db->prepare("
+        SELECT product_id, name, description, price, photo, stock, category_id
+        FROM products
+        WHERE product_id = ?
+        ");
+    
+        $query->execute([
+          $product_id
+        
+          ]);
+    
+        return $query->fetchall( PDO::FETCH_ASSOC );
+      }
+
 
       public function createProduct($data, $file) {
         
@@ -80,23 +97,27 @@ class Products extends Base {
  
      }
     
-     public function updateProducts($product){
+     public function updateProducts($data, $file){
         
       $query = $this->db->prepare("
           UPDATE products
           SET 
-            stock = ".$product["stock"].", price = ".$product["price"].", 
-            description = ".$product["description"].", 
-            category_id = ".$product["category_id"]."
-          WHERE product_id = ? AND name = ?
+            stock = ?, price = ?, description = ?, 
+            category_id = ?, photo = ?, name = ?
+          WHERE product_id = ? 
       ");
 
       $query->execute([
-          $product["product_id"],
-          $product["name"]
+          $data["stock"],
+          $data["price"],
+          $data["description"],
+          $data["category_id"],
+          $file,
+          $data["name"],
+          $data["id"]
+
       ]);
 
-      return $query->fetch(PDO:: FETCH_ASSOC);
   }
 
       public function deleteProduct($id){

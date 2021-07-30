@@ -2,9 +2,7 @@
 require("models/products.php");
 
 $products= new Products();
-
 $product = $products->getProductsDetails($_GET["product_id"]);
-
 
 $cart_count = 0;
 

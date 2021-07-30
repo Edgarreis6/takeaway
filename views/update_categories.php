@@ -42,12 +42,8 @@
       
             $name = $category['name'];
             $current_image = $category['photo'];
-           
-
-
-       
-
-    ?>
+         
+?>
 
 
             <table class="tbl-30">

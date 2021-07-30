@@ -9,5 +9,5 @@ require("models/products.php");
         $message = 'O produto com o id '.$_POST["product_id"].' e com o nome ' .$_POST["name"].' foi removido com sucesso';
     }   
 
-    require("views/deleteProducts.php");
+    require("views/manage_products.php");
 ?>

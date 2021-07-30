@@ -53,7 +53,7 @@
     if($product["photo"]!="")
     {
 ?>
-        <img src="./images/produtos/<?=$product["photo"];?>" width="100px" >
+        <img src="./images/products/<?=$product["photo"];?>" width="100px" >
 <?php
     }
         else
@@ -91,5 +91,5 @@
     </div>
 
     </div>
-
+    
 <?php include('partials/footer.php'); ?>

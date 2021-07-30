@@ -10,8 +10,7 @@ $categoriesModel = new Categories();
 
 if(isset($_GET['id']))
 {
-    //Get the ID and all other details
-    //echo "Getting the Data";
+    
     $id = $_GET['id'];
     
     $categories = $categoriesModel->getDetails($id);

@@ -1,33 +1,36 @@
 <?php
-
 header("Content-Type: application/json");
 
+if( isset($_POST["request"]) ) {
 
-if(!isset($_POST["request"])) {
-    header("HTTP/1.1 400 Bad Request");
-    die('{"status":"Error"}');
-}
+    if($_POST["request"] === "removeProduct" && !empty($_POST["product_id"])) {
+        
+        $product_id = (int)$_POST["product_id"];
 
-if($_POST["request"] === "removeProduct" &&
-    !empty($_POST["product_id"]) &&
-    is_numeric($_POST["product_id"])
-    ) {
-        unset($_SESSION["cart"][ (int)$_POST["product_id"]]);
-        echo '{"status":"ok"}';
+        unset( $_SESSION["cart"][ $product_id ] );
+        
+        echo '{"status":"ok", "message":"removed product ' .$product_id. '"}';
     }
-    else if($_POST["request"] === "changeQuantity" &&
-    !empty($_POST["product_id"]) &&
-    is_numeric($_POST["product_id"])&&
-    !empty($_POST["quantity"]) &&
-    is_numeric($_POST["quantity"])&&
-    (int)$_POST["quantity"] > 0
-    ){
-        //$product = $query->fetch();
-       
-        if(!empty($product)) {
-            $_SESSION["cart"][$product["product_id"] ] ["quantity"] = (int)$_POST["quantity"];
-            
-            echo '{"status":"ok"}';
+    elseif(
+        $_POST["request"] === "changeQuantity" &&
+        !empty($_POST["product_id"]) &&
+        !empty($_POST["quantity"]) &&
+        isset($_SESSION["cart"][ $_POST["product_id"] ]) &&
+        $_POST["quantity"] > 0
+    ) {
+        $product_id = (int)$_POST["product_id"];
+        $quantity = (int)$_POST["quantity"];
 
-        }
+        $_SESSION["cart"][ $product_id ]["quantity"] = $quantity;
+
+        echo '{"status":"ok", "message":"changed quantity to ' .$quantity. ' of product ' .$product_id. '"}';
+    }
+    else {
+        header("HTTP/1.1 400 Bad Request");
+        echo '{"status":"Error", "message":"Invalid request"}';
+    }
+}
+else {
+    header("HTTP/1.1 400 Bad Request");
+    echo '{"status":"Error", "message":"Invalid request"}';    
 }

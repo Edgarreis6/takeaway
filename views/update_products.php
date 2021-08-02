@@ -110,6 +110,9 @@ $current_image = $product["photo"];
                 </td>
             </tr>
 
+
+
+            
             <tr>
                 <td>Select New Image: </td>
                 <td>

@@ -86,7 +86,7 @@
 
                 <tr>
                     <td colspan="2">
-                        <input type="submit" name="send" value="Aicionar Produto" class="btn-secondary">
+                        <input type="submit" name="send" value="Adicionar Produto" class="btn-secondary">
                     </td>
                 </tr>
 

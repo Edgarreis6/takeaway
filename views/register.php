@@ -25,7 +25,6 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="./">Home</a></li>
-            <li><a href="#">Page 2</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="?controller=access&action=login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>

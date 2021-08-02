@@ -134,6 +134,28 @@ class Products extends Base {
           return $query->fetch(PDO:: FETCH_ASSOC);
     }
 
+    public function updateStock($data) {
+        
+      if( !empty($_SESSION["cart"])) {
+          
+      
+      $query = $this->db->prepare(" 
+                  UPDATE products
+                  SET stock = stock - ?
+                  WHERE product_id = ?
+                  
+                  ");
+                     
+                  $query->execute([
+          
+                      $data,
+                      $data
+                  ]);
+       
+          
+      }
+     
+  }
    
 }    
 

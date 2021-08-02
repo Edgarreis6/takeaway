@@ -6,7 +6,7 @@ $controller = "home";
 
 $valid_controllers = ["home", "categories", "products", "products_details",
  "access", "cart", "requests", "checkout", "admin", "add_categories", "manage_category", 
- "update_category", "manage_products", "add_products", "update_product" ];
+ "update_category", "manage_products", "add_products", "update_product", "manage_order" ];
 
 if(isset($_GET["controller"]) && in_array($_GET["controller"], $valid_controllers) 
 ) {

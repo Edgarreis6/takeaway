@@ -17,7 +17,7 @@
                 <li><a href="?controller=admin">Home</a></li>
                 <li><a href="?controller=manage_category">Category</a></li>
                 <li><a href="?controller=manage_products">Products</a></li>
-                <li><a href="?controller=manage_orders">Orders</a></li>
+                <li><a href="?controller=manage_order">Orders</a></li>
                 <li><a href="?controller=home">Mainpage</a></li>
             </ul>
         </div>
@@ -30,17 +30,17 @@
             <div class="col-4 text-center">
                 <h1>5</h1>
                 <br>
-               <a href="?controller=add_categories">Categories</a> 
+               <a href="?controller=manage_category">Categories</a> 
             </div>
             <div class="col-4 text-center">
                 <h1>5</h1>
                 <br>
-              <a href="?controller=add_products">Products</a> 
+              <a href="?controller=manage_products">Products</a> 
             </div>
             <div class="col-4 text-center">
                 <h1>5</h1>
                 <br>
-               <a href="">Orders</a> 
+               <a href="#">Orders</a> 
             </div>
         
         <div class="clearfix"></div>

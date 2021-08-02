@@ -22,7 +22,6 @@
     </div>
     <ul class="nav navbar-nav">
       <li class="active"><a href="./">Home</a></li>
-            <li><a href="#">Page 2</a></li>
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="?controller=access&action=register"><span class="glyphicon glyphicon-user"></span>Criar Conta</a></li>

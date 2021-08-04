@@ -63,7 +63,7 @@
                                         <td><?= $order["email"] ?></td>
                                         <td><?= $order["phone"] ?></td>
                                         <td>
-                                            <a href="?controller=update_order&id=<?= $id; ?>" class="btn-secondary">Update Order</a>
+                                            <a href="#" class="btn-secondary">Update Order</a>
                                         </td>
                                     </tr>
 

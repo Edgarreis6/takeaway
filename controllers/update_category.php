@@ -25,8 +25,7 @@ if(isset($_POST["send"])){
     $extension = strtolower(substr($_FILES["photo"]["name"], -4));
     $newname = md5(time()) .$extension;
     $destination = "./images/categorias/".$newname;
-    print_r($destination);
-    print_r($newname);
+    
     move_uploaded_file($_FILES["photo"]["tmp_name"], $destination);
     
 

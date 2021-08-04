@@ -56,7 +56,7 @@
                         </div>
                         <button type="submit" name="send" class="form-button button-l margin-b">Sign In</button>
         
-                        <a class="text-darkyellow" href="#"><small>Forgot your password?</small></a>
+                        <a class="text-darkyellow" href="?controller=recover_password"><small>Forgot your password?</small></a>
                         <h3 class="text-whitesmoke text-center"><small><a class="text-whitesmoke" href="?controller=access&action=register">Não está registado?</a></small></~h>
                     </form>
                 </div>

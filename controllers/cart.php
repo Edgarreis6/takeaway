@@ -26,6 +26,7 @@ if(isset($_POST["send"])) {
     }
 }
 
+
 $cart_count = 0;
 
 if(isset($_SESSION["cart"])){

@@ -40,7 +40,7 @@
             <div class="col-4 text-center">
                 <h1>5</h1>
                 <br>
-               <a href="#">Orders</a> 
+               <a href="?controller=manage_order">Orders</a> 
             </div>
         
         <div class="clearfix"></div>

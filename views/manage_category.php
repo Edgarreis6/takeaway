@@ -12,7 +12,7 @@
                     <li><a href="?controller=admin">Home</a></li>
                     <li><a href="?controller=manage_category">Category</a></li>
                     <li><a href="?controller=manage_products">products</a></li>
-                    <li><a href="#">Order</a></li>
+                    <li><a href="?controller=manage_order">Order</a></li>
                     <li><a href="?controller=home">Main_Page</a></li>
                 </ul>
             </div>

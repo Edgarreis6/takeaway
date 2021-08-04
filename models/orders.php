@@ -76,36 +76,11 @@ class Orders extends Base
                 $query->execute([
                     $_SESSION["user_id"]
                 ]);
-
-            $order_id = $this->db->lastInsertId();
-
-            return $order_id;
             
+                return $order_id = $this->db->lastInsertId();
         }
     }      
     
-
-    public function orderDetails($order_id, $item ) {
-                        
-        if( !empty($_SESSION["cart"])) {
-            
-            $query = $this->db->prepare("
-            INSERT INTO orderdetails
-            (order_id, product_id, quantity, price_each)
-            VALUES(?,?,?,?)
-           
-                    
-                ");
-                $query->execute([
-                    $order_id,
-                    $item["product_id"],
-                    $item["quantity"],
-                    $item["price"]
-
-                ]);
-            
-        }
-    }      
     
     
     
